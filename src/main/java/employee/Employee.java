@@ -28,6 +28,13 @@ public class Employee {
     }
 
     @Override
+    public String toString() {
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
+    @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName);
     }

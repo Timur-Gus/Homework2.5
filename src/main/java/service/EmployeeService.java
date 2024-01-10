@@ -12,7 +12,8 @@ import java.util.List;
 public class EmployeeService {
     List<Employee> employees = new ArrayList<>();
     static final int EMPLOYEES_MAX = 10;
-    public void addEmployee(String firstName, String lastName) {
+
+    public Employee addEmployee(String firstName, String lastName) {
             for (Employee employee : employees) {
             if (employee.getFirstName().equals(firstName) && employee.getLastName().equals(lastName)){
              throw new EmployeeAlreadyAddedException();
@@ -20,15 +21,17 @@ public class EmployeeService {
             if (employees.size() < EMPLOYEES_MAX) {
             Employee employee = new Employee(firstName, lastName);
             employees.add(employee);
+            return employee;
             } else {
             throw new EmployeeStorageIsFullException();
         }
     }
-    public void delEmployee(String firstName, String lastName) {
+
+    public Employee delEmployee(String firstName, String lastName) {
         for (Employee employee : employees) {
             if (employee.getFirstName().equals(firstName) && employee.getLastName().equals(lastName)){
                 employees.remove(employee);
-                return;
+                return employee;
             }
         }
         throw new EmployeeNotFoundException();
@@ -40,6 +43,9 @@ public class EmployeeService {
             }
         }
         throw new EmployeeNotFoundException();
+    }
+    public String allEmployees() {
+        return "" + employees;
     }
 
 }
