@@ -1,13 +1,17 @@
-package employee;
+package com.example.EmployeeBook.employee;
 
 import java.util.Objects;
 
 public class Employee {
     String firstName, lastName;
+    int dept;
+    double salary;
 
-    public Employee(String firstName, String lastName) {
+    public Employee(String firstName, String lastName, int dept, double salary) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.dept = dept;
+        this.salary = salary;
     }
 
     public String getLastName() {
@@ -18,6 +22,21 @@ public class Employee {
         return firstName;
     }
 
+    public int getDept() {
+        return dept;
+    }
+
+    public void setDept(int dept) {
+        this.dept = dept;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
 
     @Override
     public boolean equals(Object o) {
