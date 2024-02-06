@@ -1,5 +1,6 @@
 package com.example.EmployeeBook.controller;
 
+import org.apache.coyote.BadRequestException;
 import org.springframework.web.bind.annotation.*;
 import com.example.EmployeeBook.service.EmployeeService;
 
@@ -20,7 +21,7 @@ public class EmployeeController {
     public String addEmployee(@RequestParam("firstName") String firstName,
                               @RequestParam("lastName") String lastName,
                               @RequestParam("departmentID") int dept,
-                              @RequestParam("salary") double salary) {
+                              @RequestParam("salary") double salary) throws BadRequestException {
         return employeeService.addEmployee(firstName, lastName, dept, salary) + "";
     }
 

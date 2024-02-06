@@ -5,6 +5,8 @@ import com.example.EmployeeBook.myExceptions.EmployeeAlreadyAddedException;
 import com.example.EmployeeBook.myExceptions.EmployeeNotFoundException;
 import com.example.EmployeeBook.myExceptions.EmployeeStorageIsFullException;
 import com.example.EmployeeBook.myInterface.EmployeeInterface;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.coyote.BadRequestException;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -19,13 +21,18 @@ public class EmployeeService implements EmployeeInterface {
     }
 
     @Override
-    public Employee addEmployee(String firstName, String lastName, int dept, double salary) {
-        Employee employee = new Employee(firstName, lastName, dept, salary);
-        if (employees.containsKey(firstName + lastName)) {
+    public Employee addEmployee(String firstName, String lastName, int dept, double salary) throws BadRequestException {
+        if (!StringUtils.isAlpha(firstName) && !StringUtils.isAlpha(lastName)) {
+            throw new BadRequestException();
+        }
+        String capFirstName = StringUtils.capitalize(firstName);
+        String capLastName = StringUtils.capitalize(lastName);
+        Employee employee = new Employee(capFirstName,capLastName, dept, salary);
+        if (employees.containsKey(capFirstName + capLastName)) {
             throw new EmployeeAlreadyAddedException();
         }
         if (employees.size() < EMPLOYEES_MAX) {
-            employees.put(firstName + lastName, employee);
+            employees.put(capFirstName + capLastName, employee);
             return employee;
         } else {
             throw new EmployeeStorageIsFullException();
