@@ -1,6 +1,5 @@
 package com.example.EmployeeBook.service;
 
-import com.example.EmployeeBook.myInterface.EmployeeInterface;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -12,12 +11,10 @@ import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-
-
 @ExtendWith(MockitoExtension.class)
 class DepartmentServiceTest {
     @Mock
-    private EmployeeInterface employeeMock;
+    private EmployeeService employeeMock;
     @InjectMocks
     private DepartmentService out;
 
