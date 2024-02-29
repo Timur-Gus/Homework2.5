@@ -1,13 +1,10 @@
 package com.example.EmployeeBook.controller;
 
 import com.example.EmployeeBook.service.DepartmentService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/department")
+@RequestMapping("/department")
 public class DepartmentController {
 
     public final DepartmentService departmentService;
@@ -15,20 +12,28 @@ public class DepartmentController {
     public DepartmentController(DepartmentService departmentService) {
         this.departmentService = departmentService;
     }
-    @GetMapping(path = "/max-salary")
-    public String EmployeMaxSalaryWithDepartment(@RequestParam("departmentID") int dept){
-        return departmentService.EmployeMaxSalaryWithDepartment(dept).toString();
-    }
-    @GetMapping(path = "/min-salary")
-    public String EmployeMinSalaryWithDepartment(@RequestParam("departmentID") int dept){
-        return departmentService.EmployeMinSalaryWithDepartment(dept).toString();
-    }
-    @GetMapping(path = "/all", params = "departmentID")
-    public String allEmployeesByDepartment(@RequestParam("departmentID") int dept){
+
+    @GetMapping("{id}/employees")
+    public String allEmployeesByDepartment(@PathVariable("id") int dept) {
         return departmentService.allEmployeesByDepartment(dept).toString();
     }
-    @GetMapping(path = "/all")
-    public String allEmployeesGruopOfDepartment(){
-        return departmentService.allEmployeesGruopOfDepartment().toString();
+
+    @GetMapping("{id}/salary/sum")
+    public String employeesSumSalaryOfDepartment(@PathVariable("id") int dept) {
+        return departmentService.employeeSumSalaryWithDepartment(dept).toString();
+    }
+    @GetMapping("/{id}/salary/max")
+    public String employeesMaxSalaryWithDepartment(@PathVariable("id") int dept) {
+        return departmentService.employeeMaxSalaryWithDepartment(dept).toString();
+    }
+
+    @GetMapping("{id}/salary/min")
+    public String employeesMinSalaryWithDepartment(@PathVariable("id") int dept) {
+        return departmentService.employeeMinSalaryWithDepartment(dept).toString();
+    }
+
+    @GetMapping("/employees")
+    public String allEmployeesGroupOfDepartment() {
+        return departmentService.allEmployeesGroupOfDepartment().toString();
     }
 }

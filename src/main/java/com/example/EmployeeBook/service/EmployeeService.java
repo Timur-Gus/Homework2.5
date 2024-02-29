@@ -22,7 +22,7 @@ public class EmployeeService implements EmployeeInterface {
 
     @Override
     public Employee addEmployee(String firstName, String lastName, int dept, double salary) throws BadRequestException {
-        if (!StringUtils.isAlpha(firstName) && !StringUtils.isAlpha(lastName)) {
+        if (!StringUtils.isAlpha(firstName) || !StringUtils.isAlpha(lastName)) {
             throw new BadRequestException();
         }
         String capFirstName = StringUtils.capitalize(firstName);
