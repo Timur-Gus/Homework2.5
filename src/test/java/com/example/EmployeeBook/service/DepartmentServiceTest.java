@@ -25,18 +25,21 @@ class DepartmentServiceTest {
         assertEquals(EMPLOYEE1, out.employeeMaxSalaryWithDepartment(1));
 
     }
+
     @Test
     void employeeMinSalaryWithDepartment() {
         when(employeeMock.allEmployees())
                 .thenReturn(EMPLOYEES);
         assertEquals(EMPLOYEE2, out.employeeMinSalaryWithDepartment(2));
     }
+
     @Test
     void employeeSumSalaryWithDepartment() {
         when(employeeMock.allEmployees())
                 .thenReturn(EMPLOYEES);
         assertEquals(SALARY1 + SALARY2, out.employeeSumSalaryWithDepartment(1));
     }
+
     @Test
     void allEmployeesByDepartment() {
         when(employeeMock.allEmployees())

@@ -44,7 +44,6 @@ public class DepartmentService implements DepartmentInterface {
         return employeeService.allEmployees().stream()
                 .filter(d -> d.getDept() == dept)
                 .collect(Collectors.toList());
-
     }
     @Override
     public Map<Integer, List<Employee>> allEmployeesGroupOfDepartment() {
