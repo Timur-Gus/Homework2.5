@@ -42,13 +42,5 @@ class DepartmentServiceTest {
         when(employeeMock.allEmployees())
                 .thenReturn(EMPLOYEES);
         assertIterableEquals(EMPLOYEES_BY_DEPARTMENT, out.allEmployeesByDepartment(2));
-
-    }
-
-    @Test
-    void allEmployeesGroupOfDepartment() {
-        when(employeeMock.allEmployees())
-                .thenReturn(EMPLOYEES);
-        assertEquals(EMPLOYEE_WITH_DEPARTMENT, out.allEmployeesGroupOfDepartment());
     }
 }

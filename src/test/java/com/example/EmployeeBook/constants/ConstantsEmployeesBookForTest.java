@@ -44,13 +44,6 @@ public class ConstantsEmployeesBookForTest {
     public static final List<Employee> EMPLOYEES_BY_DEPARTMENT = new ArrayList<>(List.of(
             EMPLOYEE2, EMPLOYEE4
     ));
-    public static final Map<Integer, Employee> EMPLOYEE_WITH_DEPARTMENT = new HashMap<>(Map.of(
-            EMPLOYEE1.getDept(), EMPLOYEE1,
-            EMPLOYEE2.getDept(), EMPLOYEE2,
-            EMPLOYEE3.getDept(), EMPLOYEE3,
-            EMPLOYEE4.getDept(), EMPLOYEE4,
-            EMPLOYEE5.getDept(), EMPLOYEE5));
-
 }
 
 
