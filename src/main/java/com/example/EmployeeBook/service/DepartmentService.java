@@ -29,6 +29,9 @@ public class DepartmentService implements DepartmentInterface {
                 .filter(e -> e.getDept() == dept)
                 .mapToDouble(Employee::getSalary)
                 .sum();
+
+
+
     }
 
     @Override
