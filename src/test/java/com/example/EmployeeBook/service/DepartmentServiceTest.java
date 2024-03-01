@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 import static com.example.EmployeeBook.constants.ConstantsEmployeesBookForTest.*;
@@ -71,7 +72,7 @@ class DepartmentServiceTest {
     void allEmployeesByDepartment() {
         when(employeeMock.allEmployees())
                 .thenReturn(EMPLOYEES);
-        assertIterableEquals(EMPLOYEES_BY_DEPARTMENT, out.allEmployeesByDepartment(2));
+        assertIterableEquals(EMPLOYEES_BY_DEPARTMENT2, out.allEmployeesByDepartment(2));
     }
     @Test
     void  allEmployeesDepartmentNoSuchElement() {
@@ -79,6 +80,14 @@ class DepartmentServiceTest {
                 .thenReturn(EMPLOYEES);
         List<Employee> emptyList = new ArrayList<>();
         assertEquals(emptyList, out.allEmployeesByDepartment(1000));
+    }
+    @Test
+    void allEmployeesGroupOfDepartment(){
+        when(employeeMock.allEmployees())
+                .thenReturn(EMPLOYEES);
+        Map<Integer, List<Employee>> actual = out.allEmployeesGroupOfDepartment();
+        assertEquals(EMPLOYEES_GROUPING_OF_DEPT, actual);
+
     }
 
 }

@@ -41,8 +41,19 @@ public class ConstantsEmployeesBookForTest {
     public static final List<Employee> EMPLOYEES = new ArrayList<>(List.of(
             EMPLOYEE1, EMPLOYEE2, EMPLOYEE3, EMPLOYEE4, EMPLOYEE5
     ));
-    public static final List<Employee> EMPLOYEES_BY_DEPARTMENT = new ArrayList<>(List.of(
+    public static final List<Employee> EMPLOYEES_BY_DEPARTMENT1 = new ArrayList<>(List.of(
+            EMPLOYEE1, EMPLOYEE3
+    ));
+    public static final List<Employee> EMPLOYEES_BY_DEPARTMENT2 = new ArrayList<>(List.of(
             EMPLOYEE2, EMPLOYEE4
+    ));
+    public static final List<Employee> EMPLOYEES_BY_DEPARTMENT3 = new ArrayList<>(List.of(
+            EMPLOYEE5
+    ));
+    public static  final Map<Integer,List<Employee>> EMPLOYEES_GROUPING_OF_DEPT = new HashMap<>(Map.of(
+            1, EMPLOYEES_BY_DEPARTMENT1,
+            2, EMPLOYEES_BY_DEPARTMENT2,
+            3, EMPLOYEES_BY_DEPARTMENT3
     ));
 }
 
