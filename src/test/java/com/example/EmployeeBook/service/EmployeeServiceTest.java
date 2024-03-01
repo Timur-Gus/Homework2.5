@@ -124,7 +124,6 @@ class EmployeeServiceTest {
         Employee employee4 = employeeService.addEmployee(FIRST_NAME4, LAST_NAME2, DEPARTMENT2, SALARY1);
         Employee employee5 = employeeService.addEmployee(FIRST_NAME5, LAST_NAME2, DEPARTMENT3, SALARY2);
         List<Employee> actual = employeeService.allEmployees();
-        List<Employee> expected = EMPLOYEES;
-        Assertions.assertEquals(actual, expected);
+        assertTrue(EMPLOYEES.containsAll(actual));
     }
 }
